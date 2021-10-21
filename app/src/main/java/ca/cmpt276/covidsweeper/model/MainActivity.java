@@ -6,6 +6,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,27 +25,42 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        gameGrid = CellGrid.getInstance(4,6,6);
 
-        gameGrid = CellGrid.getInstance(4,6,6);//6,10,15,20
 
-        // TODO: SETTINGS button setup
+        setupSettingButton();
+        launchGame();
+
+    }
+
+    private void setupSettingButton(){
         FloatingActionButton newBtn = (FloatingActionButton) findViewById(R.id.fab);
         newBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent);
-
             }
         });
+    }
 
+    private void setBoardAndMinesSize() {
+        String boardSize = SettingsActivity.getGridSelected(this);
+        int minesAmount = SettingsActivity.getMinesSelected(this);
 
-
-        // TODO: Setup CellGrid based on settings
-
-        // Button to start game
-        launchGame();
-
+        if (boardSize.equals("NULL")) {
+            boardSize = "4 rows by 6 columns";
+        }
+        if (minesAmount == 0) {
+            minesAmount = 6;
+        }
+        if (boardSize.equals("4 rows by 6 columns")) {
+            gameGrid.resetGrid(4, 6, minesAmount);
+        } else if (boardSize.equals("5 rows by 10 columns")) {
+            gameGrid.resetGrid(5, 10, minesAmount);
+        } else {
+            gameGrid.resetGrid(6, 15, minesAmount);
+        }
     }
 
     private void launchGame() {
@@ -50,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         newGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                setBoardAndMinesSize();
+                gameGrid.resetMinesFound();
                 Intent intent = new Intent(MainActivity.this, GameActivity.class);
                 startActivity(intent);
             }
@@ -60,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
