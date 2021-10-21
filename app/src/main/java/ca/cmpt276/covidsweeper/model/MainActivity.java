@@ -25,7 +25,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        gameGrid = CellGrid.getInstance(4,6,6);
+
+        gameGrid = CellGrid.getInstance(4,6,6);//6,10,15,20
+
+        // TODO: SETTINGS button setup
+        FloatingActionButton newBtn = (FloatingActionButton) findViewById(R.id.fab);
+        newBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
+
+        });
 
 
         setupSettingButton();
