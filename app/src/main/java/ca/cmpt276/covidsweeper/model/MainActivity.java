@@ -27,13 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
         // TODO: SETTINGS button setup
         FloatingActionButton newBtn = (FloatingActionButton) findViewById(R.id.fab);
-        newBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intent);
+        newBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
 
-            }
         });
 
 
