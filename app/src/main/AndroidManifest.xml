@@ -10,10 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.COVIDSweeper">
         <activity
+            android:name=".model.HelpActivity"
+            android:screenOrientation="landscape"
+            android:exported="false" />
+        <activity
             android:name=".model.SettingsActivity"
+            android:screenOrientation="landscape"
             android:exported="false" />
         <activity
             android:name=".model.GameActivity"
+            android:screenOrientation="landscape"
             android:exported="false" />
         <activity
             android:name=".model.MainActivity"
