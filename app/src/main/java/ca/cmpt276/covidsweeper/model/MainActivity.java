@@ -1,21 +1,18 @@
+/*
+MainActivity for showing the menu. Sets up buttons for the options screen, game screen, and help screen
+Also creates a default board if none is selected, or sets up the board based on the mines, rows, columns selected in options
+ */
+
 package ca.cmpt276.covidsweeper.model;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import ca.cmpt276.covidsweeper.R;
 import ca.cmpt276.covidsweeper.game.CellGrid;
 
@@ -29,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        gameGrid = CellGrid.getInstance(4, 6, 6);//6,10,15,20
+        gameGrid = CellGrid.getInstance(4, 6, 6); // default gameGrid
 
         setupHelpButton();
         setupSettingButton();

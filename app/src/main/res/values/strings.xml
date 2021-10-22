@@ -14,4 +14,11 @@
     <string name="title_activity_help">HelpActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="author">Hi my name is Harjap Dhaliwal and I\'m the creator of this app! This is one of the first apps I\'ve ever created and I\'m really exited to release it on the Google Play Store very soon. Some things I enjoy doing: programming, trading stocks and options, playing sports.</string>
+    <string name="how_to_play_the_game">How to Play the Game</string>
+    <string name="goal_of_game">The goal of the game is to find all the hidden COVID cells which are scattered throughout the area grid. Once you find all the COVID cells, the area is then freed of COVID cells and you win the game.</string>
+    <string name="clicking_covid_cell">If you click a cell that contains a hidden COVID cell, it will reveal the COVID cell and reduce the number of cells remaining in the area grid. You must continue clicking cells until you discover all the COVID cells. The number of cells can be changed in the settings from the menu.</string>
+    <string name="clicking_normal_cell">Clicking a cell that does not contain a COVID cell will trigger a scan of its row and column. It will output a number on the screen indicating how many COVID cells are in the same row and column. The number will update as you find more COVID cells.</string>
+    <string name="scanning_cells">Clicking on a revealed mine will also cause it to scan for other COVID cells in its row and column. The goal is to find and defeat the COVID cells in the fewest number of scans.</string>
+    <string name="author_title">Author</string>
 </resources>

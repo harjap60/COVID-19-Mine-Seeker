@@ -1,3 +1,8 @@
+/*
+Not much here, just here to help create the help screen.
+Most of the work is in the activity_help.xml(hard coded)
+ */
+
 package ca.cmpt276.covidsweeper.model;
 
 import androidx.appcompat.app.AppCompatActivity;

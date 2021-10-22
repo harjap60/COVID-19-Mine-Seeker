@@ -1,17 +1,20 @@
+/*
+SettingsActivity used for selecting the ammount of mines, rows, columns for the game.
+Creates buttons for the radio group and sets on-click listeners
+Uses shared preferences to save the selected options, so other activities can retrieve the info
+ */
+
 package ca.cmpt276.covidsweeper.model;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import ca.cmpt276.covidsweeper.R;
 
@@ -49,8 +52,6 @@ public class SettingsActivity extends AppCompatActivity {
                 button.setChecked(true);
             }
         }
-
-
     }
 
     static public int getMinesSelected(Context context) {

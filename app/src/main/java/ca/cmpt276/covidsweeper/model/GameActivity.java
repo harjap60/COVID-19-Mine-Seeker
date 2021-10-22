@@ -1,10 +1,15 @@
+/*+
+This is the main activity for the actual game.
+It sets up the dynamic buttons, textEdits for scans and mines, and the on click listeners for the buttons
+Takes care of all functionality about the game: showing the COVID cells when clicked, updating mine and scan count
+showing the dialog, and exiting to main menu
+ */
 package ca.cmpt276.covidsweeper.model;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,7 +19,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TableLayout;
@@ -88,8 +92,14 @@ public class GameActivity extends AppCompatActivity {
                     }
                     // If button is not a mine or mine is already clicked
                     else {
+                        if(a.isMine() && !a.scanRevealed()){
+                            ++numOfScans;
+                            a.setRevealed();
+                        }
+                        else if(!a.isClicked()){
+                            ++numOfScans;
+                        }
                         a.setClicked(true);
-                        ++numOfScans;
                         if (!a.isScannable()) {
                             TextView numberOfScans = (TextView) findViewById(R.id.numOfScans);
                             numberOfScans.setText("# Scans used: " + numOfScans);
@@ -153,7 +163,7 @@ public class GameActivity extends AppCompatActivity {
             public void run() {
                 finish();
             }
-        }, 2000);
+        }, 1696);
     }
 
     /*

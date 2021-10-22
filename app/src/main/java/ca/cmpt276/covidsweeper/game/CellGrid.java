@@ -1,3 +1,12 @@
+/*
+CellGrid is just a multidimensional array of Cells
+It keeps track of the number of mines found and not found
+Uses a singleton constructor to allow multiple activities to access it
+Has a function to reset the grid(when settings are changed or when game is created)
+Also has a function to randomize the mines across the grid
+And has an important function called clickedCell() which returns the number of COVID mines in the same row and column
+ */
+
 package ca.cmpt276.covidsweeper.game;
 
 import java.util.Random;
