@@ -12,13 +12,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
 import ca.cmpt276.covidsweeper.R;
 import ca.cmpt276.covidsweeper.game.CellGrid;
 
 public class MainActivity extends AppCompatActivity {
     private CellGrid gameGrid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,23 +29,23 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        gameGrid = CellGrid.getInstance(4,6,6);//6,10,15,20
+        gameGrid = CellGrid.getInstance(4, 6, 6);//6,10,15,20
 
-        // TODO: SETTINGS button setup
-        FloatingActionButton newBtn = (FloatingActionButton) findViewById(R.id.fab);
-        newBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-            startActivity(intent);
-
-        });
-
-
+        setupHelpButton();
         setupSettingButton();
         launchGame();
 
     }
 
-    private void setupSettingButton(){
+    private void setupHelpButton() {
+        Button help = (Button) findViewById(R.id.help);
+        help.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, HelpActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    private void setupSettingButton() {
         FloatingActionButton newBtn = (FloatingActionButton) findViewById(R.id.fab);
         newBtn.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
