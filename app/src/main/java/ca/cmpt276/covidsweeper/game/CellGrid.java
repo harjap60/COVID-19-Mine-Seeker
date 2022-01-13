@@ -62,9 +62,8 @@ public class CellGrid {
                 leftoverMines++;
             }
         }
-        // If cell is a mine and is not clicked yet, return -1
-        // If cell is a mine and is clicked then return mines in rows and columns
-
+        // If cell is a mine and is not clicked yet, returns -1
+        // If cell is a mine and is clicked then returns the number of mines in the same row and column
         return leftoverMines;
     }
 
@@ -72,8 +71,6 @@ public class CellGrid {
         grid = new Cell[newX][newY];
         numberOfMines = newMines;
         minesFound = 0;
-
-
     }
 
     public void resetMinesFound(){
